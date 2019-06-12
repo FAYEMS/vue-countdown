@@ -1,24 +1,50 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <div id="app">
+      <BasicModal ref="counting" headerMsg="HELLO" paragraghMsg="hello world" a="10"/>
+      <button @click="openCountDown">CountDown</button>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from "./components/HelloWorld.vue";
+import BasicModal from "@/components/BasicModal.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    HelloWorld
+    // HelloWorld
+    BasicModal
+  },
+  data() {
+    return {
+      isCountDownVisible: false,
+      num: 15
+    };
+  },
+  methods: {
+    startCount() {
+      this.$refs.counting.open("failure", this.alert);
+    },
+    openCountDown() {
+      this.isCountDownVisible = true;
+      this.startCount();
+    },
+    closeCountDown() {
+      this.$refs.counting.close();
+    },
+
+    alert() {
+      alert("hello");
+    }
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
