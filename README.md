@@ -1,5 +1,9 @@
 # vue-countdown
 
+this is a work in progress for a vue countdown pop up modal...feel free to fork
+
+
+
 ## Project setup
 ```
 npm install
