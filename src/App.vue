@@ -27,10 +27,12 @@ export default {
     success() {
       this.$refs.counting.status = "success";
       this.$refs.counting.headerMsg = "SUCCESS";
+      this.$refs.counting.paragraghMsg = "success";
     },
     fail() {
       this.$refs.counting.status = "failure";
-      this.$refs.counting.paragraghMsg = "FAILURE";
+      this.$refs.counting.headerMsg = "FAILURE";
+      this.$refs.counting.paragraghMsg = "failure";
     },
     startCount() {
       this.$refs.counting.open(this.alert);
