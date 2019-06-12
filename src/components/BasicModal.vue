@@ -75,7 +75,7 @@ export default {
       this.date = this.a;
 
       setInterval(() => {
-        if (this.value === 90) {
+        if (this.date === 0) {
           if (this.status == "success") {
             this.isDone = true;
             this.isSuccess = true;

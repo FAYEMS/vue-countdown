@@ -1,14 +1,13 @@
 <template>
   <div>
     <div id="app">
-      <BasicModal ref="counting" headerMsg="HELLO" paragraghMsg="hello world" a="10"/>
+      <BasicModal ref="counting" headerMsg="HELLO" paragraghMsg="hello world" a="15"/>
       <button @click="openCountDown">CountDown</button>
     </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
 import BasicModal from "@/components/BasicModal.vue";
 
 export default {
