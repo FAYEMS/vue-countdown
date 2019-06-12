@@ -24,8 +24,16 @@ export default {
     };
   },
   methods: {
+    success() {
+      this.$refs.counting.status = "success";
+      this.$refs.counting.headerMsg = "SUCCESS";
+    },
+    fail() {
+      this.$refs.counting.status = "failure";
+      this.$refs.counting.paragraghMsg = "FAILURE";
+    },
     startCount() {
-      this.$refs.counting.open("failure", this.alert);
+      this.$refs.counting.open(this.alert);
     },
     openCountDown() {
       this.isCountDownVisible = true;

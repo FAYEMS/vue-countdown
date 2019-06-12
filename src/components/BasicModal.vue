@@ -9,8 +9,8 @@
               <Fail v-show="isFail"/>
               <Progess v-show="!isDone" min="0" max="100" :value="value" :text="time"/>
             </div>
-            <h3>{{headerMsg}}</h3>
-            <p>{{paragraghMsg}}</p>
+            <h3>{{hMsg}}</h3>
+            <p>{{pMsg}}</p>
             <button v-show="isFail" @click="close">Close</button>
           </div>
         </div>
@@ -45,7 +45,8 @@ export default {
       value: 0,
       totalSeconds: 0,
       actualSeconds: 0,
-      a: 0
+      a: 0,
+      status: "failure"
     };
   },
   mounted() {},
@@ -68,17 +69,19 @@ export default {
       this.showModal = false;
       this.reset();
     },
-    count(status, method) {
+    count(method) {
+      this.status = "failure";
       this.totalSeconds = this.a;
       this.date = this.a;
 
       setInterval(() => {
         if (this.value === 90) {
-          if (status == "success") {
+          if (this.status == "success") {
             this.isDone = true;
             this.isSuccess = true;
             setTimeout(() => this.close, 1500);
-          } else if (status == "failure") {
+          } else if (this.status == "failure") {
+            this.headerMsg = "FAILURE";
             this.isDone = true;
             this.isFail = true;
           }
@@ -100,6 +103,12 @@ export default {
   computed: {
     time: function() {
       return this.date;
+    },
+    hMsg: function() {
+      return this.headerMsg;
+    },
+    pMsg: function() {
+      return this.paragraghMsg;
     }
   }
 };
